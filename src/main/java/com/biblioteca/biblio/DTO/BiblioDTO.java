@@ -1,9 +1,14 @@
 package com.biblioteca.biblio.DTO;
 
+import lombok.Data;
+
+import org.springframework.data.annotation.Id;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Data
 public class BiblioDTO {
+        @Id
         private String id = UUID.randomUUID().toString();
 
         private String name;

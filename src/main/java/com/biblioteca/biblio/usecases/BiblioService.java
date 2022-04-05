@@ -1,3 +1,4 @@
+/*
 package com.biblioteca.biblio.services;
 
 
@@ -32,7 +33,8 @@ public class BiblioService {
         return biblioRepository.findById(id);
            }
 
-    /*public BiblioDTO edit(BiblioDTO biblioDTO) {
+    */
+/*public BiblioDTO edit(BiblioDTO biblioDTO) {
         BiblioModel biblioModel = mapper.fromDto(biblioDTO);
         biblioRepository.findById(biblioModel.getId()).orElseThrow(() -> new RuntimeException("recurso no encontrado"));
         return mapper.fromCollection(biblioRepository.save(biblioModel));
@@ -96,5 +98,7 @@ public class BiblioService {
         biblioModel.stream().filter(x->x.getTheme().equals(theme));
         return mapper.fromCollectionList(biblioModel);
     }
-*/
+*//*
+
 }
+*/

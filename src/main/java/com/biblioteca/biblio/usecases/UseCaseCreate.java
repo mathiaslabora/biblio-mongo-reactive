@@ -1,9 +1,10 @@
-package com.biblioteca.biblio.services;
+package com.biblioteca.biblio.usecases;
 
 import com.biblioteca.biblio.DTO.BiblioDTO;
 import com.biblioteca.biblio.collections.BiblioModel;
 import com.biblioteca.biblio.mappers.BiblioMapper;
 import com.biblioteca.biblio.respositories.BiblioRepository;
+import com.biblioteca.biblio.usecases.Iusecase.saveBiblio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -15,7 +16,7 @@ public class UseCaseCreate implements saveBiblio {
     private final BiblioRepository biblioRepository;
     private final BiblioMapper biblioMapper;
 
-    @Autowired
+
     public UseCaseCreate(BiblioRepository biblioRepository, BiblioMapper biblioMapper) {
 
         this.biblioRepository = biblioRepository;
@@ -24,8 +25,9 @@ public class UseCaseCreate implements saveBiblio {
 
 
     @Override
-    public Mono<String> apply(BiblioDTO biblioDTO) {
-        return biblioRepository.save(biblioMapper.fromDto(null).apply(biblioDTO)).map(BiblioModel::getId);
+    public Mono<BiblioDTO> apply(BiblioDTO biblioDTO) {
+        return biblioRepository.save(biblioMapper.toBiblio().apply(biblioDTO))
+                .flatMap(biblioModel -> Mono.just(biblioMapper.toDto().apply(biblioModel)));
     }
 }
 

@@ -24,6 +24,9 @@ public class BiblioModel {
 
     private Boolean isLend;
 
+    public BiblioModel(String id, String name, String autor, Boolean lend, String theme, String tipe, LocalDate date) {
+    }
+
     public LocalDate getDate() {
         return date;
     }

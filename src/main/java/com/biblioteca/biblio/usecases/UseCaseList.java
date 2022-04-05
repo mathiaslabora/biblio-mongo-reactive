@@ -1,4 +1,4 @@
-package com.biblioteca.biblio.services;
+package com.biblioteca.biblio.usecases;
 
 import com.biblioteca.biblio.DTO.BiblioDTO;
 import com.biblioteca.biblio.mappers.BiblioMapper;
@@ -21,6 +21,6 @@ public class UseCaseList implements Supplier<Flux<BiblioDTO>> {
 
     @Override
     public Flux<BiblioDTO> get() {
-        return biblioRepository.findAll().map(biblioMapper.fromCollection());
+        return biblioRepository.findAll().map(biblioMapper.toDto());
     }
 }
