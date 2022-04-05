@@ -1,4 +1,3 @@
-/*
 package com.biblioteca.biblio.router;
 
 import com.biblioteca.biblio.services.UseCaseCreate;
@@ -14,4 +13,3 @@ public class CrearBiblioRouter {
         return null;
     }
 }
-*/

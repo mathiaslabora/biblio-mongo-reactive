@@ -1,3 +1,4 @@
+/*
 package com.biblioteca.biblio.controllers;
 
 import com.biblioteca.biblio.DTO.BiblioDTO;
@@ -33,17 +34,21 @@ public class BiblioController {
                 .build();
     }
 
-    /*@GetMapping()
+    */
+/*@GetMapping()
     public ResponseEntity<List<BiblioModel>> findAll() {
         return new ResponseEntity(biblioService.getRecursos(), HttpStatus.OK);
-    }*/
+    }*//*
+
 
     @PostMapping("/")
     public ResponseEntity<Mono<BiblioModel>> create(@RequestBody BiblioModel biblioModel) {
         return new ResponseEntity(biblioService.create(biblioModel), HttpStatus.CREATED);
     }
 
-    /*//prestar
+    */
+/*//*
+/prestar
     @PutMapping("/lend/{id}")
     public ResponseEntity<BiblioDTO> lend(@PathVariable("id") String id, @RequestBody BiblioDTO biblioDTO) {
         if (biblioDTO.getId() != null) {
@@ -83,5 +88,7 @@ public class BiblioController {
     public ResponseEntity<BiblioDTO> recommendtipeandtheme(@PathVariable("tipe") String tipe,@PathVariable("theme") String theme) throws Throwable {
         return new ResponseEntity(biblioService.recommendtipeandtheme(tipe,theme), HttpStatus.OK);
     }
-*/
+*//*
+
 }
+*/
