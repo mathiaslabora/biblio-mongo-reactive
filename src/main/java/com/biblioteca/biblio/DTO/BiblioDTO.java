@@ -1,12 +1,13 @@
 package com.biblioteca.biblio.DTO;
 
-import lombok.Data;
+
 
 import org.springframework.data.annotation.Id;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
-@Data
+
 public class BiblioDTO {
         @Id
         private String id = UUID.randomUUID().toString();
@@ -81,5 +82,20 @@ public class BiblioDTO {
         public void setLend(Boolean lend) {
             isLend = lend;
         }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BiblioDTO DTO = (BiblioDTO) o;
+        return Objects.equals(id, DTO.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+
     }
 

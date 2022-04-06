@@ -27,6 +27,10 @@ public class BiblioModel {
     public BiblioModel(String id, String name, String autor, Boolean lend, String theme, String tipe, LocalDate date) {
     }
 
+    public BiblioModel() {
+
+    }
+
     public LocalDate getDate() {
         return date;
     }

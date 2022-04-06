@@ -5,5 +5,5 @@ import reactor.core.publisher.Mono;
 
 @FunctionalInterface
 public interface saveBiblio {
-    Mono<BiblioDTO> apply(BiblioDTO biblioDTO);
+    public Mono<String> apply(BiblioDTO biblioDTO);
 }

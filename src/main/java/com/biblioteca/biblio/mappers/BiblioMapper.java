@@ -10,37 +10,24 @@ import java.util.function.Function;
 @Component
 public class BiblioMapper {
 
-    public Function<BiblioDTO, BiblioModel> toBiblio() {
-        return biblioModel -> {
-            return new BiblioModel(biblioModel.getId(),
-                    biblioModel.getName(),
-                    biblioModel.getAutor(),
-                    biblioModel.getLend(),
-                    biblioModel.getTheme(),
-                    biblioModel.getTipe(),
-                    biblioModel.getDate());
+    public Function<BiblioDTO, BiblioModel> toBiblio(String id) {
+        return updateBiblio -> {
+            var biblio = new BiblioModel();
+            biblio.setId(id);
+            biblio.setName(updateBiblio.getName());
+            biblio.setAutor(updateBiblio.getAutor());
+            biblio.setLend(updateBiblio.getLend());
+            biblio.setTheme(updateBiblio.getTheme());
+            biblio.setTipe(updateBiblio.getTipe());
+            biblio.setDate(updateBiblio.getDate());
 
+            return biblio;
         };
     }
 
     public Function<BiblioModel, BiblioDTO> toDto() {
         return entity -> new BiblioDTO(entity.getId(), entity.getAutor(), entity.getTipe(), entity.getDate(), entity.getLend(), entity.getTheme(), entity.getName());
     }
-
-//devuelve de lista de modelos a listado dto:
-    /*public List<BiblioDTO> fromCollectionList(List<BiblioModel> collection) {
-        if (collection == null) {
-            return null;
-        }
-        List<BiblioDTO> list = new ArrayList(collection.size());
-        Iterator listTracks = collection.iterator();
-
-        while (listTracks.hasNext()) {
-            BiblioModel biblioModel = (BiblioModel) listTracks.next();
-            list.add(fromCollection(biblioModel));
-        }
-        return list;
-    }*/
 
 
 }

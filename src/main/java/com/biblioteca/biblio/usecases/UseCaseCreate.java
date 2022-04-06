@@ -16,7 +16,7 @@ public class UseCaseCreate implements saveBiblio {
     private final BiblioRepository biblioRepository;
     private final BiblioMapper biblioMapper;
 
-
+    @Autowired
     public UseCaseCreate(BiblioRepository biblioRepository, BiblioMapper biblioMapper) {
 
         this.biblioRepository = biblioRepository;
@@ -25,9 +25,9 @@ public class UseCaseCreate implements saveBiblio {
 
 
     @Override
-    public Mono<BiblioDTO> apply(BiblioDTO biblioDTO) {
-        return biblioRepository.save(biblioMapper.toBiblio().apply(biblioDTO))
-                .flatMap(biblioModel -> Mono.just(biblioMapper.toDto().apply(biblioModel)));
+    public Mono<String> apply(BiblioDTO biblioDTO) {
+        return biblioRepository.save(biblioMapper.toBiblio(null).apply(biblioDTO))
+                .map(BiblioModel::getId);
     }
 }
 

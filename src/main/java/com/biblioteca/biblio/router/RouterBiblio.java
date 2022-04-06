@@ -18,7 +18,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterBiblio {
 
     @Bean
-    public RouterFunction<ServerResponse> getAll(UseCaseList useCaseList){
+    public RouterFunction<ServerResponse> obtener(UseCaseList useCaseList){
         return route(
                 GET("/consultar").and(accept(MediaType.APPLICATION_JSON)),
                                 request->ServerResponse.ok()
@@ -27,8 +27,8 @@ public class RouterBiblio {
                 );
     }
 
-    @Bean
+    /*@Bean
     public org.springframework.web.servlet.function.RouterFunction<org.springframework.web.servlet.function.ServerResponse> createBiblio(UseCaseCreate useCaseCreate) {
         return null;
-    }
+    }*/
 }
